@@ -1,4 +1,15 @@
 {
-  "extends": ["react-app", "airbnb", "airbnb/hooks"],
-  "rules": {}
+  "extends": ["airbnb", "airbnb/hooks", "prettier"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {},
+      "babel-module": {
+        "root": ["./src"],
+        "allowExistingDirectories": true
+      }
+    }
+  }
 }
