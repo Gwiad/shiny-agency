@@ -9,7 +9,8 @@
       "babel-module": {
         "root": ["./src"],
         "allowExistingDirectories": true
-      }
+      },
+      "typescript": {}
     }
   },
   "env": {
