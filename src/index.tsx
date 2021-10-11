@@ -8,11 +8,17 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from 'components/Header';
 import Results from 'pages/Results';
 import Freelances from 'pages/Freelances';
+import { createGlobalStyle } from 'styled-components';
 // import reportWebVitals from './reportWebVitals';
-
+const GlobalStyle = createGlobalStyle`
+    div {
+        font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
+`;
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route path="/" exact>
