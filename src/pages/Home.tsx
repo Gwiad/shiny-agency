@@ -15,7 +15,6 @@ const StyledContainer = styled.div`
   grid-template-columns: auto auto;
 `;
 const StyledTitle = styled.h1`
-  color: ${colors.contrastText};
   font-weight: 700;
   font-size: 50px;
   line-height: 80.25px;

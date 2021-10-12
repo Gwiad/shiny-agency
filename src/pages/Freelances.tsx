@@ -25,13 +25,30 @@ const freelanceProfiles = [
 const CardsContainer = styled.div`
   display: grid;
   gap: 24px;
-  grid-template-rows: 350px 350px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-columns: auto auto;
+  margin: auto;
+  width: 760px;
+`;
+const StyledTitle = styled.h1`
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 39.75px;
+  text-align: center;
+`;
+const StyledSubTitle = styled.h2`
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  text-align: center;
 `;
 export default function Freelances() {
   return (
     <div>
-      <h1>Freelances 👩‍💻👨‍💻👩‍💻</h1>
+      <StyledSubTitle>
+        Chez Shiny nous réunissons les meilleurs profils pour vous.
+      </StyledSubTitle>
+      <StyledTitle>Trouvez votre prestataire</StyledTitle>
       <CardsContainer>
         {freelanceProfiles.map((profile) => (
           <Card

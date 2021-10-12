@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
     }
     html, body {
       background: ${colors.backgroundDark}; 
+      color: ${colors.contrastText};
     }
 `;
 ReactDOM.render(
