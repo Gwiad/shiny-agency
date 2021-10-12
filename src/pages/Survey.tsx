@@ -48,11 +48,9 @@ export default function Survey() {
         const surveyData = await response.json();
         setQuestions(surveyData.surveyData);
       } catch {
-        console.log('error');
         setError(true);
       } finally {
         setDataLoading(false);
-        console.log('done');
       }
     }
     fetchSurvey();
