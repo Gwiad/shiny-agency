@@ -2,17 +2,11 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from 'utils/styles/colors';
-// import { ThemedStyledFunction } from 'styled-components';
-// import { StyledFunction } from 'styled-components';
+import lightLogo from 'assets/light-logo.png';
+
 interface LinkProps extends Link {
   $isFullLink?: boolean;
 }
-
-// const Heading = styled(({ active, ...rest }) => <Title {...rest} />)<{
-//   active: boolean;
-// }>`
-//   color: ${props => (props.active ? 'red' : 'blue')};
-// `;
 
 const StyledLink = styled(Link)<LinkProps>`
   padding: 15px;
@@ -21,25 +15,59 @@ const StyledLink = styled(Link)<LinkProps>`
   font-size: 18px;
   ${(props) =>
     props.$isFullLink &&
-    `color: white; border-radius: 30px; background-color: ${colors.primary};`}
+    `border-radius: 30px; background-color: ${colors.contrast};`}
+  font-weight: 700px;
+  font-size: 20px;
+  line-height: 23px;
+  color: ${colors.contrastText};
+`;
+
+const StyledDiv = styled.div`
+  height: 200px;
+`;
+
+const StyledImg = styled.img`
+  margin-top: 51px;
+  margin-left: 26px;
+  width: 186px;
+  height: 70px;
+`;
+
+const StyledContainer = styled.div`
+  float: right;
+  margin-top: 64px;
+  margin-right: 62px;
 `;
 
 function Header() {
   return (
     <nav>
-      <StyledLink to="/" $isFullLink={false} $$typeof={Symbol('StyledLink')}>
-        Accueil
-      </StyledLink>
-      <StyledLink
-        to="/freelances"
-        $isFullLink={false}
-        $$typeof={Symbol('StyledLink')}
-      >
-        Freelances
-      </StyledLink>
-      <StyledLink to="/survey/1" $isFullLink $$typeof={Symbol('StyledLink')}>
-        Questionnaire
-      </StyledLink>
+      <StyledDiv>
+        <StyledImg src={lightLogo} alt="logo" />
+        <StyledContainer>
+          <StyledLink
+            to="/"
+            $isFullLink={false}
+            $$typeof={Symbol('StyledLink')}
+          >
+            Accueil
+          </StyledLink>
+          <StyledLink
+            to="/freelances"
+            $isFullLink={false}
+            $$typeof={Symbol('StyledLink')}
+          >
+            Freelances
+          </StyledLink>
+          <StyledLink
+            to="/survey/1"
+            $isFullLink
+            $$typeof={Symbol('StyledLink')}
+          >
+            Questionnaire
+          </StyledLink>
+        </StyledContainer>
+      </StyledDiv>
     </nav>
   );
 }

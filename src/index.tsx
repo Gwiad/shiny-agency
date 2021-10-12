@@ -9,10 +9,14 @@ import Header from 'components/Header';
 import Results from 'pages/Results';
 import Freelances from 'pages/Freelances';
 import { createGlobalStyle } from 'styled-components';
+import colors from 'utils/styles/colors';
 // import reportWebVitals from './reportWebVitals';
 const GlobalStyle = createGlobalStyle`
     div {
         font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
+    html, body {
+      background: ${colors.backgroundDark}; 
     }
 `;
 ReactDOM.render(
