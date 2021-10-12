@@ -43,7 +43,9 @@ function Header() {
   return (
     <nav>
       <StyledDiv>
-        <StyledImg src={lightLogo} alt="logo" />
+        <StyledLink to="/" $isFullLink={false} $$typeof={Symbol('StyledLink')}>
+          <StyledImg src={lightLogo} alt="logo" />
+        </StyledLink>
         <StyledContainer>
           <StyledLink
             to="/"
