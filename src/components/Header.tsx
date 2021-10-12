@@ -57,14 +57,14 @@ function Header() {
             $isFullLink={false}
             $$typeof={Symbol('StyledLink')}
           >
-            Freelances
+            Profils
           </StyledLink>
           <StyledLink
             to="/survey/1"
             $isFullLink
             $$typeof={Symbol('StyledLink')}
           >
-            Questionnaire
+            Faire le test
           </StyledLink>
         </StyledContainer>
       </StyledDiv>
