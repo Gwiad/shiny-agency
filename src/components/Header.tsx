@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from 'utils/styles/colors';
 import lightLogo from 'assets/light-logo.png';
+import { ThemeContext } from 'utils/ThemeProvider';
 
 interface LinkProps extends Link {
   $isFullLink?: boolean;
+  $theme?: string;
 }
 
 const StyledLink = styled(Link)<LinkProps>`
@@ -19,7 +21,10 @@ const StyledLink = styled(Link)<LinkProps>`
   font-weight: 700px;
   font-size: 20px;
   line-height: 23px;
-  color: ${colors.contrastText};
+  color: ${(props) =>
+    props.$theme === 'light' && !props.$isFullLink
+      ? '#000000'
+      : colors.contrastText};
 `;
 
 const StyledDiv = styled.div`
@@ -40,10 +45,16 @@ const StyledContainer = styled.div`
 `;
 
 function Header() {
+  const { theme } = React.useContext(ThemeContext);
   return (
     <nav>
       <StyledDiv>
-        <StyledLink to="/" $isFullLink={false} $$typeof={Symbol('StyledLink')}>
+        <StyledLink
+          to="/"
+          $theme={theme}
+          $isFullLink={false}
+          $$typeof={Symbol('StyledLink')}
+        >
           <StyledImg src={lightLogo} alt="logo" />
         </StyledLink>
         <StyledContainer>
@@ -51,17 +62,20 @@ function Header() {
             to="/"
             $isFullLink={false}
             $$typeof={Symbol('StyledLink')}
+            $theme={theme}
           >
             Accueil
           </StyledLink>
           <StyledLink
             to="/freelances"
+            $theme={theme}
             $isFullLink={false}
             $$typeof={Symbol('StyledLink')}
           >
             Profils
           </StyledLink>
           <StyledLink
+            $theme={theme}
             to="/survey/1"
             $isFullLink
             $$typeof={Symbol('StyledLink')}

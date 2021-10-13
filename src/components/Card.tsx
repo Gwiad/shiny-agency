@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import colors from 'utils/styles/colors';
+import { ThemeContext } from 'utils/ThemeProvider';
 
 interface CardProps {
   label: string;
@@ -10,6 +11,10 @@ interface CardProps {
 
 interface CardLabelProps {
   $center?: boolean;
+}
+
+interface CardWrapperProps {
+  $theme?: string;
 }
 
 const CardLabel = styled.span<CardLabelProps>`
@@ -29,11 +34,14 @@ const CardImage = styled.img`
   width: 148px;
   height: 148px;
 `;
-const CardWrapper = styled.div`
+const CardWrapper = styled.div<CardWrapperProps>`
   display: flex;
   flex-direction: column;
   padding: 15px;
-  background-color: ${colors.backgroundLight};
+  background-color: ${(props) =>
+    props.$theme === 'dark'
+      ? colors.backgroundLight
+      : colors.backgroundSuperLight};
   border-radius: 30px;
   transition: 200ms;
   &:hover {
@@ -47,8 +55,9 @@ const CardWrapper = styled.div`
 `;
 
 function Card({ label, title, picture }: CardProps) {
+  const { theme } = React.useContext(ThemeContext);
   return (
-    <CardWrapper>
+    <CardWrapper $theme={theme}>
       <CardLabel>{label}</CardLabel>
       <CardImage src={picture} alt="freelance" height={80} width={80} />
       <CardLabel $center>{title}</CardLabel>

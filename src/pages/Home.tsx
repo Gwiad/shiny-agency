@@ -3,9 +3,16 @@ import 'App.css';
 import styled from 'styled-components';
 import colors from 'utils/styles/colors';
 import HomeImg from 'assets/home-illustration.svg';
+import { ThemeContext } from 'utils/ThemeProvider';
 
-const StyledContainer = styled.div`
-  background: ${colors.backgroundLight};
+interface StyledContainerProps {
+  $theme?: string;
+}
+const StyledContainer = styled.div<StyledContainerProps>`
+  background: ${(props) =>
+    props.$theme === 'dark'
+      ? colors.backgroundLight
+      : colors.backgroundSuperLight};
   margin-left: 65px;
   margin-right: 65px;
   height: calc(100vh - 200px);
@@ -29,8 +36,9 @@ const StyledImg = styled.img`
 `;
 
 function Home() {
+  const { theme } = React.useContext(ThemeContext);
   return (
-    <StyledContainer>
+    <StyledContainer $theme={theme}>
       <StyledDiv>
         <StyledTitle>
           Repérez vos besoins, on s’occupe du reste, avec les meilleurs talents
