@@ -10,30 +10,33 @@ import Results from 'pages/Results';
 import Freelances from 'pages/Freelances';
 import ThemeProvider from 'utils/ThemeProvider';
 import Footer from 'components/Footer';
+import { SurveyProvider } from 'utils/SurveyProvider';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <ThemeProvider>
-        <Header />
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/survey/:questionId">
-            <Survey />
-          </Route>
-          <Route path="/results">
-            <Results />
-          </Route>
-          <Route path="/freelances">
-            <Freelances />
-          </Route>
-          <Route>
-            <Error />
-          </Route>
-        </Switch>
-        <Footer />
+        <SurveyProvider>
+          <Header />
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/survey/:questionId">
+              <Survey />
+            </Route>
+            <Route path="/results">
+              <Results />
+            </Route>
+            <Route path="/freelances">
+              <Freelances />
+            </Route>
+            <Route>
+              <Error />
+            </Route>
+          </Switch>
+          <Footer />
+        </SurveyProvider>
       </ThemeProvider>
     </Router>
   </React.StrictMode>,
