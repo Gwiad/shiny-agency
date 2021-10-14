@@ -61,18 +61,17 @@ const ReplyBox = styled.button<ReplyBoxProps>`
 interface QuestionInterface {
   [id: string]: string;
 }
-interface QuestionsInterface {
-  [name: string]: QuestionInterface;
-}
+
+
 
 export default function Survey() {
-  const [questions, setQuestions] = React.useState<QuestionsInterface>({});
-  const [isDataLoading, setDataLoading] = React.useState(false);
-  const [error, setError] = React.useState(false);
+  // const [questions] = React.useState<QuestionsInterface>({});
+  // const [isDataLoading ] = React.useState(false);
+  const [routeError, setRouteError] = React.useState(false);
   const { answers, setAnswers } = React.useContext(SurveyContext);
 
-  const { data, isLoading } = useFetch(`http://localhost:8000/survey`);
-  const { surveyData } = data;
+  const { data, isLoading, error } = useFetch(`http://localhost:8000/survey`);
+  const surveyData:QuestionInterface|undefined = data?.surveyData;
 
   interface ParamsProps {
     questionId: string;
@@ -109,21 +108,21 @@ export default function Survey() {
       setIsFalse(false);
     }
     if (currentQuestion < 1 || currentQuestion > 10) {
-      setError(true);
+      setRouteError(true);
     }
   }, [answers, currentQuestion]);
 
   return (
     <div>
-      {error && (
+      {error || routeError && (
         <p style={{ textAlign: 'center' }}> oups il y a eu un problème </p>
       )}
-      {!error && (
+      {!error && !routeError && (
         <SurveyContainer>
           <QuestionTitle>Question {currentQuestion}</QuestionTitle>
-          {isDataLoading && <Loader />}
-          {!isDataLoading && (
-            <QuestionContent>{questions[currentQuestion]}</QuestionContent>
+          {isLoading && <Loader />}
+          {!isLoading && surveyData &&(
+            <QuestionContent>{surveyData[currentQuestion]}</QuestionContent>
           )}
           <ReplyWrapper>
             <ReplyBox onClick={() => saveReply(true)} $isSelected={isTrue}>
@@ -135,7 +134,7 @@ export default function Survey() {
           </ReplyWrapper>
           <LinkWrapper>
             <Link to={`/survey/${previousQuestion}`}>Précédent</Link>
-            {questions[currentQuestion + 1] ? (
+            {surveyData && surveyData[currentQuestion + 1] ? (
               <Link to={`/survey/${nextQuestion}`}>Suivant</Link>
             ) : (
               <Link to="/results">Résultats</Link>

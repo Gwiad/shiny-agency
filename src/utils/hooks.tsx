@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 interface DataInterface {
   surveyData?: {};
@@ -6,19 +6,28 @@ interface DataInterface {
 const useFetch = (url: string) => {
   const [data, setData] = useState<DataInterface>({});
   const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     if (!url) return;
     async function fetchData() {
+      try {
       const response = await fetch(url);
       const json = await response.json();
       setData(json);
-      setLoading(false);
+      }
+      catch(err){
+        console.log(err)
+        setError(true)
+      }
+      finally{
+        setLoading(false);
+      }
     }
     setLoading(true);
     fetchData();
   }, [url]);
-  return { isLoading, data };
+  return { isLoading, data, error };
 };
 
 export default useFetch;
