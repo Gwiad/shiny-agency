@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import colors from 'utils/styles/colors';
 import Loader from 'utils/Atoms';
 import { SurveyContext } from 'utils/SurveyProvider';
+import useFetch from 'utils/hooks';
 
 const SurveyContainer = styled.div`
   display: flex;
@@ -70,21 +71,8 @@ export default function Survey() {
   const [error, setError] = React.useState(false);
   const { answers, setAnswers } = React.useContext(SurveyContext);
 
-  React.useEffect(() => {
-    async function fetchSurvey() {
-      setDataLoading(true);
-      try {
-        const response = await fetch(`http://localhost:8000/survey`);
-        const surveyData = await response.json();
-        setQuestions(surveyData.surveyData);
-      } catch {
-        setError(true);
-      } finally {
-        setDataLoading(false);
-      }
-    }
-    fetchSurvey();
-  }, []);
+  const { data, isLoading } = useFetch(`http://localhost:8000/survey`);
+  const { surveyData } = data;
 
   interface ParamsProps {
     questionId: string;
