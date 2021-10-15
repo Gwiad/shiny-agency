@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import GlobalStyle from 'utils/styles/GlobalStyle';
 
 interface ContextProps {
   theme: string;
-  setTheme: () => null;
+  setTheme: Dispatch<SetStateAction<string>>;
 }
 
 export const ThemeContext = React.createContext<ContextProps>({

@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 
 interface ContextProps {
   answers: boolean[];
-  setAnswers: () => null;
+  setAnswers: Dispatch<SetStateAction<never[]>>;
 }
 
 export const SurveyContext = React.createContext<ContextProps>({
   answers: [],
-  setAnswers: () => null,
+  setAnswers: () => [],
 });
 
 export const SurveyProvider = (props: any) => {
