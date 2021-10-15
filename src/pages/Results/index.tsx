@@ -61,7 +61,7 @@ const LoaderWrapper = styled.div`
 `;
 
 export function formatQueryParams(answers: (undefined | boolean)[]) {
-  let answerNumbers = Object.keys(answers);
+  const answerNumbers = Object.keys(answers);
 
   return answerNumbers.reduce(
     (previousParams: string, answerNumber: any, index: number) => {
@@ -69,7 +69,8 @@ export function formatQueryParams(answers: (undefined | boolean)[]) {
         const isFirstParam = index === 1;
         const separator = isFirstParam ? '' : '&';
         return `${previousParams}${separator}a${answerNumber}=${answers[answerNumber]}`;
-      } else return '';
+      }
+      return '';
     },
     '',
   );
