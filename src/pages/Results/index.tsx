@@ -60,14 +60,16 @@ const LoaderWrapper = styled.div`
   justify-content: center;
 `;
 
-export function formatQueryParams(answers: boolean[]) {
-  const answerNumbers = Object.keys(answers);
+export function formatQueryParams(answers: (undefined | boolean)[]) {
+  let answerNumbers = Object.keys(answers);
 
   return answerNumbers.reduce(
     (previousParams: string, answerNumber: any, index: number) => {
-      const isFirstParam = index === 0;
-      const separator = isFirstParam ? '' : '&';
-      return `${previousParams}${separator}a${answerNumber}=${answers[answerNumber]}`;
+      if (index !== 0) {
+        const isFirstParam = index === 1;
+        const separator = isFirstParam ? '' : '&';
+        return `${previousParams}${separator}a${answerNumber}=${answers[answerNumber]}`;
+      } else return '';
     },
     '',
   );
