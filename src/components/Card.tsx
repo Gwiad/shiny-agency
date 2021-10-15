@@ -56,11 +56,15 @@ const CardWrapper = styled.div<CardWrapperProps>`
 
 function Card({ label, title, picture }: CardProps) {
   const { theme } = React.useContext(ThemeContext);
+  const [isFavorite, setIsFavorite] = React.useState(false);
+  const star = isFavorite ? '⭐️' : '';
   return (
-    <CardWrapper $theme={theme}>
+    <CardWrapper $theme={theme} onClick={() => setIsFavorite(!isFavorite)}>
       <CardLabel>{label}</CardLabel>
       <CardImage src={picture} alt="freelance" height={80} width={80} />
-      <CardLabel $center>{title}</CardLabel>
+      <CardLabel $center>
+        {star} {title} {star}
+      </CardLabel>
     </CardWrapper>
   );
 }
