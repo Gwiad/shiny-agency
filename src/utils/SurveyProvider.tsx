@@ -2,7 +2,7 @@ import React from 'react';
 
 interface ContextProps {
   answers: boolean[];
-  setAnswers: Function;
+  setAnswers: () => null;
 }
 
 export const SurveyContext = React.createContext<ContextProps>({

@@ -2,7 +2,7 @@ import { createGlobalStyle, css } from 'styled-components';
 import colors from 'utils/styles/colors';
 
 interface Props {
-  theme: String;
+  theme: string;
 }
 const GlobalStyle = createGlobalStyle(
   (props: Props) => css`

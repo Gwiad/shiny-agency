@@ -3,7 +3,7 @@ import GlobalStyle from 'utils/styles/GlobalStyle';
 
 interface ContextProps {
   theme: string;
-  setTheme: Function;
+  setTheme: () => null;
 }
 
 export const ThemeContext = React.createContext<ContextProps>({
