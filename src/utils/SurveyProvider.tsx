@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 
 interface ContextProps {
   answers: boolean[];
-  setAnswers: Dispatch<SetStateAction<never[]>>;
+  setAnswers: Dispatch<SetStateAction<any>>;
 }
 
 export const SurveyContext = React.createContext<ContextProps>({
