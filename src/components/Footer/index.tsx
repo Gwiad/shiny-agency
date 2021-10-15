@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ThemeButton from 'utils/ThemeButton';
+import ThemeButton from 'components/ThemeButton';
 
 const FooterContainer = styled.footer`
   display: flex;
