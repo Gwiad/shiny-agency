@@ -62,8 +62,6 @@ interface QuestionInterface {
   [id: string]: string;
 }
 
-
-
 export default function Survey() {
   // const [questions] = React.useState<QuestionsInterface>({});
   // const [isDataLoading ] = React.useState(false);
@@ -71,7 +69,7 @@ export default function Survey() {
   const { answers, setAnswers } = React.useContext(SurveyContext);
 
   const { data, isLoading, error } = useFetch(`http://localhost:8000/survey`);
-  const surveyData:QuestionInterface|undefined = data?.surveyData;
+  const surveyData: QuestionInterface | undefined = data?.surveyData;
 
   interface ParamsProps {
     questionId: string;
@@ -114,14 +112,15 @@ export default function Survey() {
 
   return (
     <div>
-      {error || routeError && (
-        <p style={{ textAlign: 'center' }}> oups il y a eu un problème </p>
-      )}
+      {error ||
+        (routeError && (
+          <p style={{ textAlign: 'center' }}> oups il y a eu un problème </p>
+        ))}
       {!error && !routeError && (
         <SurveyContainer>
           <QuestionTitle>Question {currentQuestion}</QuestionTitle>
           {isLoading && <Loader />}
-          {!isLoading && surveyData &&(
+          {!isLoading && surveyData && (
             <QuestionContent>{surveyData[currentQuestion]}</QuestionContent>
           )}
           <ReplyWrapper>
