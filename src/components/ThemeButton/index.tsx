@@ -10,6 +10,7 @@ const StyledButton = styled.button`
   color: ${colors.contrastText};
   width: 300px;
   height: 60px;
+  border-radius: 30px;
 `;
 
 const ThemeButton = () => {
