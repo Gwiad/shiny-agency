@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from 'utils/styles/colors';
 import lightLogo from 'assets/light-logo.png';
+import darkLogo from 'assets/dark-logo.png';
 import { ThemeContext } from 'utils/context/ThemeProvider';
 
 interface LinkProps extends Link {
@@ -46,6 +47,7 @@ const StyledContainer = styled.div`
 
 function Header() {
   const { theme } = React.useContext(ThemeContext);
+  const logo = theme === 'dark' ? lightLogo : darkLogo;
   return (
     <nav>
       <StyledDiv>
@@ -55,7 +57,7 @@ function Header() {
           $isFullLink={false}
           $$typeof={Symbol('StyledLink')}
         >
-          <StyledImg src={lightLogo} alt="logo" />
+          <StyledImg src={logo} alt="logo" />
         </StyledLink>
         <StyledContainer>
           <StyledLink
