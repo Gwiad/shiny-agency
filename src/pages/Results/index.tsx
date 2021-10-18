@@ -90,7 +90,7 @@ export default function Results() {
         <>
           {isLoading && (
             <LoaderWrapper>
-              <Loader />
+              <Loader data-testid="loader" />
             </LoaderWrapper>
           )}
           {!isLoading && (
@@ -117,8 +117,10 @@ export default function Results() {
                       theme={theme}
                       key={`result-detail-${result.title}`}
                     >
-                      <JobTitle theme={theme}>{result.title}</JobTitle>
-                      <p>{result.description}</p>
+                      <JobTitle theme={theme} data-testid="job-title">
+                        {result.title}
+                      </JobTitle>
+                      <p data-testid="job-description">{result.description}</p>
                     </JobDescription>
                   ))}
               </DescriptionWrapper>
