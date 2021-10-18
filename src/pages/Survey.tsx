@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from 'utils/styles/colors';
 import Loader from 'utils/Atoms';
-import { SurveyContext } from 'utils/SurveyProvider';
+import { SurveyContext } from 'utils/context/SurveyProvider';
 import useFetch from 'utils/hooks';
 
 const SurveyContainer = styled.div`

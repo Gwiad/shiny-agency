@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import colors from 'utils/styles/colors';
-import { ThemeContext } from 'utils/ThemeProvider';
+import { ThemeContext } from 'utils/context/ThemeProvider';
 
 interface CardProps {
   label: string;

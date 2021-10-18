@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { StyledLink, Loader } from 'utils/Atoms';
 import useFetch from 'utils/hooks';
 import colors from 'utils/styles/colors';
-import { SurveyContext } from 'utils/SurveyProvider';
-import { ThemeContext } from 'utils/ThemeProvider';
+import { SurveyContext } from 'utils/context/SurveyProvider';
+import { ThemeContext } from 'utils/context/ThemeProvider';
 
 export function formatJobList(
   title: string,

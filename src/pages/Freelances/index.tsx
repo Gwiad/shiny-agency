@@ -56,7 +56,10 @@ export default function Freelances() {
       </StyledSubTitle>
       <StyledTitle>Trouvez votre prestataire</StyledTitle>
       {error && (
-        <p style={{ textAlign: 'center' }}> oups il y a eu un problème </p>
+        <p data-testid="error" style={{ textAlign: 'center' }}>
+          {' '}
+          oups il y a eu un problème{' '}
+        </p>
       )}
       {!error && dataLoading && (
         <div
@@ -66,7 +69,7 @@ export default function Freelances() {
             marginRight: 'auto',
           }}
         >
-          <Loader />
+          <Loader data-testid="loader" />
         </div>
       )}
       {!error && !dataLoading && (

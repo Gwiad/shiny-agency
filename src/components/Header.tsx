@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from 'utils/styles/colors';
 import lightLogo from 'assets/light-logo.png';
-import { ThemeContext } from 'utils/ThemeProvider';
+import { ThemeContext } from 'utils/context/ThemeProvider';
 
 interface LinkProps extends Link {
   $isFullLink?: boolean;

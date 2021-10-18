@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeContext } from 'utils/ThemeProvider';
+import { ThemeContext } from 'utils/context/ThemeProvider';
 import colors from 'utils/styles/colors';
 import styled from 'styled-components';
 

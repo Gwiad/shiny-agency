@@ -8,9 +8,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from 'components/Header';
 import Results from 'pages/Results';
 import Freelances from 'pages/Freelances';
-import ThemeProvider from 'utils/ThemeProvider';
+import ThemeProvider from 'utils/context/ThemeProvider';
 import Footer from 'components/Footer';
-import { SurveyProvider } from 'utils/SurveyProvider';
+import { SurveyProvider } from 'utils/context/SurveyProvider';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import colors from 'utils/styles/colors';
 import errorImg from 'assets/404.svg';
-import { ThemeContext } from 'utils/ThemeProvider';
+import { ThemeContext } from 'utils/context/ThemeProvider';
 
 interface StyledContainerProps {
   $theme?: string;
