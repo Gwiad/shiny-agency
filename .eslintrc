@@ -21,6 +21,7 @@
         }
       }
     ],
+    "object-shorthand": ["warn", "always"],
     "import/extensions": [
       "error",
       "ignorePackages",
